@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+generator client {
+  provider = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+
+
+model Trips {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String @unique
+  location String
+  members String[]
+  beginingDate String
+  endDate String
+  owner String
+  itinerary  Itinerary[]
+}
+
+model Itinerary {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String @unique 
+  activities Activity[]
+  tripId String @db.ObjectId
+  trip Trips @relation(fields: [tripId], references: [id])
+}
+
+model Activity {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  cost Int
+  location String
+  itineraryId String? @db.ObjectId
+  createdAt  DateTime @default(now())
+  itinerary Itinerary? @relation(fields: [itineraryId], references: [id])
+  owner String
+}
+
+
+
