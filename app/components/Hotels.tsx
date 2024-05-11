@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { shortenString } from '../helpers/shortenString';
+import { TailSpin } from 'react-loader-spinner';
 
 
 
@@ -79,30 +80,19 @@ const Hotels = ({location}: {location: string}) => {
   }
   
 
-  if(!hotels){
+  if(!hotels || !imgRef){
 
     return (
-
-      <div className='w-full h-screen p-10 gap-12 flex flex-col'>
-
-        <div className='w-full h-auto bg-red-400 p-10 rounded-xl itemd-center flex justify-center'>
-
-          <h1 className='text-lg font-bold'>Unnable to find hotels in the area. Try somwhere else</h1>
-
-        </div>
-        
+      <div className="h-screen w-full items-center flex justify-center bg-black">
+          <TailSpin
+          height="200"
+          width="200"
+          color="orange"
+          ariaLabel="loading"
+          />
       </div>
-    )
+  )
 
-  }
-
-
-  if(!imgRef){
-    return(
-      <div className='bg-black h-screen'>
-        Loading....
-      </div>
-    )
   }
 
   return (
@@ -114,17 +104,18 @@ const Hotels = ({location}: {location: string}) => {
           {hotels.map((hotel: any, index: number) => (
             
             <motion.div
+            key={hotel.place_id}
             transition={{ duration: 0.3 }}
             whileHover={{ scale: [0.8, 1.1, 1] }} 
             className={index % 2 == 0? 'bg-gray-200 w-full h-full p-0 flex gap-0 rounded-xl' : `bg-blue-300 w-full p-0 flex gap-0 rounded-xl`}>
 
               <div className='w-[50%] h-auto'>
 
-                  <img src={imgRef[index]} height={500} width={500} alt='hotel-picture' className='rounded-lg'/>
+                  <img src={imgRef[index]} height={500} width={500} alt='hotel-picture' className='rounded-lg h-full w-full'/>
 
               </div>
 
-              <div className='w-[40%] flex flex-col p-10 gap-10 h-40  md:h-full'>
+              <div className='w-[40%] flex flex-col p-10 gap-10 md:h-full h-auto'>
 
                 <h1 className='font-bold text-xl'>{shortenString(hotel.name)}</h1>
 

@@ -37,16 +37,13 @@ export async function POST (req: NextRequest) {
         /** Handle hotel response Object */
         const data = await response.json();
 
-        console.log(data);
-
-        return NextResponse.json(data);
+        return NextResponse.json(data.result);
 
 
     }catch(error){
 
         /** Handle errors */
         console.log(error);
-
 
         return NextResponse.json({error: error});
 

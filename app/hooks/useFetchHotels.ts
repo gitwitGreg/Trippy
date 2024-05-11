@@ -2,15 +2,21 @@
 
 import { useState } from "react"
 import { useEffect } from "react"
-import { useContext } from 'react';
 
 
-export default function useFetchHotels (location: string) {
+export default function useFetchHotels (location: string | null) {
 
     const [hotels, setHotels] = useState(null);
 
-
     const fetHotels = async() => {
+
+        if(!location){
+
+            console.log('missing place id');
+
+            setHotels(null);
+
+        }
 
         try{
 

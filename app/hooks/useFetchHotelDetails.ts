@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { PlaceDetails } from "../types";
 
 
-export default function fetchHotelDetails (placeId: string) {
+export default function fetchHotelDetails (placeId: string | null) {
 
-    const [hoteDetails, setHotelDetails] = useState();
+    const [hotelDetails, setHotelDetails] = useState<PlaceDetails | undefined>();
 
-    const fetchHotelDetails = async(placeId: string) => {
+    const fetchHotelDetails = async(placeId: string | null) => {
 
         try{
 
@@ -34,8 +35,6 @@ export default function fetchHotelDetails (placeId: string) {
 
             const data = await response.json();
 
-            console.log(data);
-
             setHotelDetails(data);
 
         }catch(error){
@@ -50,5 +49,5 @@ export default function fetchHotelDetails (placeId: string) {
         fetchHotelDetails(placeId);
     },[placeId])
 
-    return{hoteDetails}
+    return{hotelDetails}
 }
