@@ -16,10 +16,14 @@ import {
     CarouselPrevious,
   } from "@/components/ui/carousel"
   import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function HotelInfo() {
 
     const [errMess, setErrMess] = useState<string>();
+
+    const router = useRouter();
 
     const [imageUrls, setImageUrls] = useState([]);
 
@@ -30,6 +34,7 @@ export default function HotelInfo() {
     const { hotelDetails }: {
         hotelDetails: PlaceDetails | undefined
     } = fetchHotelDetails(placeId);
+
 
     useEffect(() => {
 
@@ -120,6 +125,20 @@ export default function HotelInfo() {
                     </div>
 
                 </Link>
+
+                <Link href={{
+                    pathname: '/itinerary'
+                  }}>
+                    <Button className='bg-orange-400 w-full text-black hover:bg-blue-400 hover:text-white'>
+                      Start Planning
+                    </Button>
+                  </Link>
+
+                <Button 
+                onClick={() => router.back()}
+                className='bg-orange w-full bg-blue-400 hover:bg-orange-400 hover:text-black ease-in'>
+                    Back
+                </Button>
 
                 <div className="w-full h-auto">
 

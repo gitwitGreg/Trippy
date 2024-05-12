@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { motion } from "framer-motion"
 import CreateItinerary from './CreateItinerary';
 import { Trips } from '@prisma/client';
+import { Button } from '@/components/ui/button';
 
 const NewTrip = ({callback} : {callback : (newTrip: any) => void}) => {
 
@@ -121,7 +122,7 @@ const NewTrip = ({callback} : {callback : (newTrip: any) => void}) => {
         repeat: 0,
         repeatDelay: 1
       }}
-      className='w-auto h-auto bg-black flex flex-col'>
+      className='w-auto h-auto bg-black flex flex-col gap-4'>
         <div className='h-auto w-full'>
 
             {errMess && (
@@ -175,6 +176,16 @@ const NewTrip = ({callback} : {callback : (newTrip: any) => void}) => {
             </form>
 
         </div>
+
+        <Link 
+        className='mb-10'
+        href={{
+        pathname :'/'
+        }}>
+            <Button className='bg-orange w-full bg-blue-400 hover:bg-orange-400 hover:text-black ease-in'>
+            New location
+            </Button>
+        </Link>
 
         {trip && (
             <CreateItinerary

@@ -5,11 +5,6 @@ import CreateNewTrip from "../components/CreateNewTrip"
 import BottomBar from "../components/BottomBar"
 import AddActivity from "../components/AddActivity"
 import Hotels from "../components/Hotels"
-import { createContext } from 'react';
-
-
-//page that will get the information fromm the first page(searbar) and pass
-//that info the childeren that need to know about the trip information
 
 
 interface SearchParamProps {

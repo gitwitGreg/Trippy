@@ -98,6 +98,14 @@ const Hotels = ({location}: {location: string}) => {
   return (
     <div className='h-full p-10 gap-5 flex flex-col w-full text-black'>
 
+      <Link href={{
+      pathname :'/'
+      }}>
+        <Button className='bg-orange w-full bg-blue-400 hover:bg-orange-400 hover:text-black ease-in'>
+          New location
+        </Button>
+      </Link>
+
       {imgRef && (
         <div className='gap-5 flex flex-col h-full w-full'>
 
@@ -107,7 +115,7 @@ const Hotels = ({location}: {location: string}) => {
             key={hotel.place_id}
             transition={{ duration: 0.3 }}
             whileHover={{ scale: [0.8, 1.1, 1] }} 
-            className={index % 2 == 0? 'bg-gray-200 w-full h-full p-0 flex gap-0 rounded-xl' : `bg-blue-300 w-full p-0 flex gap-0 rounded-xl`}>
+            className={index % 2 == 0? 'bg-orange-400 w-full h-full p-0 flex gap-0 rounded-xl' : `bg-blue-400 w-full p-0 flex gap-0 rounded-xl`}>
 
               <div className='w-[50%] h-auto'>
 
@@ -128,7 +136,7 @@ const Hotels = ({location}: {location: string}) => {
                       place_id: hotel.place_id
                     }
                   }}>
-                    <Button className='bg-red-500'>
+                    <Button className={index %2 == 0 ? 'bg-blue-400 hover:text-black hover:bg-orange-400': 'bg-orange-400 text-black hover:bg-blue-400 hover:text-white'}>
                       Learn More!
                     </Button>
                   </Link>
