@@ -21,6 +21,7 @@ export default function Past() {
 
     const  { activities }  : { activities : Activity[] | undefined } = useFetchItineraryActivities(id);
 
+    console.log(activities);
 
     if(!activities){
 
@@ -38,6 +39,27 @@ export default function Past() {
             </div>
         )
 
+    }
+
+    if(!activities.length){
+        return(
+            <div className='bg-black p-20 items-center justify-center flex h-screen text-white gap-10 flex-col'>
+                <div className='w-full h-auto bg-red-500 rounded-xl p-20 flex items-center justify-center'>
+                    <h1 className='font-bold text-lg'>No activities from that trip!</h1>
+                </div>
+                <Link 
+                className='w-full'
+                href={{
+                    pathname :'/'
+                }}>
+
+                    <Button className='bg-orange w-full bg-blue-400 hover:bg-orange-400 hover:text-black ease-in'>
+                        Home
+                    </Button>
+
+                </Link>
+            </div>
+        )
     }
 
     return(

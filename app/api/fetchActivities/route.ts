@@ -22,9 +22,23 @@ export async function POST(req: NextRequest) {
     try{
 
         /** Query for list of activities based on the itinerary id */
+        const itinerary = await prisma.itinerary.findFirst({
+            where: {
+                tripId: body
+            }
+        });
+
+        /** If no itinerary found throw error */
+        if(!itinerary){
+
+            return NextResponse.json({error: 'No itenarary found'});
+
+        }
+
+        /** Find activities */
         const activities = await prisma.activity.findMany({
-            where : {
-                itineraryId: body
+            where: {
+                itineraryId: itinerary.id
             }
         })
 

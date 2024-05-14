@@ -6,6 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 
 
@@ -29,7 +31,18 @@ const ItineraryPlans = ({newTrip} : {newTrip: string}) => {
     }
 
   return (
-    <div className='bg-black text-white w-full h-screen'>
+    <div className='bg-black text-white w-full h-screen p-4 gap-4'>
+      <Link href={{
+        pathname: '/activity',
+        query: newTrip
+      }}>
+        <Button className='w-full bg-orange-400 text-black hover:bg-blue-400 hover:text-white'>Add more activities</Button>
+      </Link>
+
+      <h1 className='text-3xl font-bold font-serif'>Itinerary plans</h1>
+
+      <hr></hr>
+
       {activities.map((activity) => (
         <div key={activity?.id}>
           <Accordion type="single" collapsible>
@@ -45,6 +58,7 @@ const ItineraryPlans = ({newTrip} : {newTrip: string}) => {
           </Accordion>
         </div>
       ))}
+
     </div>
   )
 }

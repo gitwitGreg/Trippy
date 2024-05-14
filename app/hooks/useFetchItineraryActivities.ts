@@ -28,9 +28,15 @@ export default function useFetchItineraryActivities(tripId: string){
 
                 console.log(error.error);
 
+                setActivities(undefined);
+
+                return;
+
             };
 
             const data: Activity[] = await response.json();
+
+            if(data)
 
             setActivities(data)
 

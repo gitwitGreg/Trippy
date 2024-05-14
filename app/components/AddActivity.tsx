@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/card"  
 import { Input } from "@/components/ui/input"
 import RecentActivities from "./RecentActivities"
+import Link from "next/link"
 
-const AddActivity = ({trip}: any) => {
+const AddActivity = ({tripId}: {tripId: string}) => {
     
     const [actName, setActName] = useState<string>('');
     const [cost, setCost] = useState<string>('');
@@ -78,7 +79,7 @@ const AddActivity = ({trip}: any) => {
 
     return(
     
-    <div className="bg-black text-white h-screen w-full p-10 justify-center flex">
+    <div className="bg-black text-white h-screen w-full p-10 justify-center flex flex-col">
 
         <div className="flex flex-col h-full w-full items-center gap-4">
 
@@ -137,7 +138,7 @@ const AddActivity = ({trip}: any) => {
             </Card>
             
         </div>
-
+        
     </div>
 
     )

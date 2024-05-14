@@ -15,7 +15,7 @@ const CreateNewTrip = () => {
   }
 
   return (
-    <section className='gap-5 flex flex-col pt-10 h-screen'>
+    <section className='flex flex-col pt-10 h-screen bg-black'>
 
       <NewTrip 
         callback={fetchTripData}
