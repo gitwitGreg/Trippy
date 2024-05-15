@@ -16,7 +16,7 @@ interface SearchParamProps {
 
 
 
-export default function HomePage({searchParams}: any){
+export default function HomePage({searchParams}: {searchParams: SearchParamProps}){
 
     return(
         <div className="bg-black text-white h-full w-full pt-1 gap-10 flex flex-col">

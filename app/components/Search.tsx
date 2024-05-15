@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link";
 import useFetchTrips from "../hooks/useFetchTrips";
+import { Button } from "@/components/ui/button";
 
 const Search = () => {
     const [adress, setAdress] = useState<string>('');
@@ -84,7 +85,7 @@ const Search = () => {
                     {adress && (
                         <button 
                         onClick={handleClick}
-                        className="border-black p-4 w-full rounded-xl border-2 bg-orange-500 hover:bg-sky-300 ease-out hover:border-none delay-75">
+                        className="border-black p-4 w-full rounded-xl border-2 bg-orange-500 hover:bg-sky-400 ease-out hover:border-none delay-75">
                             Verify adress
                         </button>
                     )}
@@ -97,7 +98,7 @@ const Search = () => {
                             pathname: '/home',
                             query: validAdress
                         }}>
-                            <button className="border-black p-4 w-full rounded-xl border-2 bg-orange-500 hover:bg-sky-300 ease-out hover:border-none delay-75">
+                            <button className="border-black p-4 w-full rounded-xl border-2 bg-orange-500 hover:bg-sky-400 ease-out hover:border-none delay-75">
                                 Start planning
                             </button>
                         </Link>
@@ -107,9 +108,7 @@ const Search = () => {
                 {trips && (
                     <div>
                         <Link href='/trips'>
-                            <p className="text-semibold text-lg underline">
-                                View Planned Trips
-                            </p>
+                            <Button className='bg-black text-white font-bold hover:bg-sky-400 easein'> View all planned trips</Button>
                         </Link>
                     </div>
                 )}

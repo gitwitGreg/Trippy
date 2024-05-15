@@ -15,13 +15,13 @@ import { Button } from "@/components/ui/button";
 
 export default function Activity({tripParams}: {tripParams: string}){
 
-    // if(!tripParams){
+    if(!tripParams){
 
-    //     return(
-    //         <RecentActivities />
-    //     )
+        return(
+            <RecentActivities />
+        )
         
-    // }
+    }
 
 
     return(
