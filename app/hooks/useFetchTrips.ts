@@ -11,17 +11,26 @@ export default function useFetchTrips () {
     const fetchTrips = async() => {
 
         try{
+
           const response = await fetch('/api/getTrips', {
             method: 'GET'
           })
     
           if(!response.ok){
-            const error = await response.text();
-            console.log(error);
+
+            const error: {error: string} = await response.json();
+
+            console.log(error.error);
+
             setTrips(null);
+
+            return;
           }
 
           const data = await response.json();
+
+          console.log(data);
+
           setTrips(data);
     
         }catch(error){

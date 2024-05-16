@@ -6,10 +6,16 @@ import useFetchTrips from "../hooks/useFetchTrips";
 import { Button } from "@/components/ui/button";
 
 const Search = () => {
+
     const [adress, setAdress] = useState<string>('');
+
     const [validAdress, setValidAddress] = useState<any>('');
+
     const [errMess, setErrmess] = useState<string>('');
+
     const {trips}: any = useFetchTrips();
+
+    console.log('trips: ', trips);
 
     const handleClick = async(e: any) => {
         
@@ -60,7 +66,9 @@ const Search = () => {
             setValidAddress(paramsObj);
             
         }catch(error){
+            
             console.log(error);
+
         }
     }
 

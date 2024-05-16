@@ -15,8 +15,6 @@ const Hotels = ({location}: {location: string}) => {
 
   const [imgRef, setImgRef] = useState();
 
-  const [imageUrl, setImageUrl] = useState(null);
-
   const { hotels }: any = useFetchHotels(location);
 
   const fetchImages = async() => {
