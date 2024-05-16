@@ -1,9 +1,4 @@
-import { useSearchParams } from "react-router-dom"
-import { useRouter } from "next/navigation"
 import WeatherForecast from "../components/Weather"
-import CreateNewTrip from "../components/CreateNewTrip"
-import BottomBar from "../components/BottomBar"
-import AddActivity from "../components/AddActivity"
 import Hotels from "../components/Hotels"
 
 
