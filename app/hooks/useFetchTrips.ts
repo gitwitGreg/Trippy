@@ -29,6 +29,7 @@ export default function useFetchTrips () {
 
           
           const data = await response.json();
+          
           console.log(data)
 
           setTrips(data);

@@ -26,8 +26,11 @@ export async function GET () {
 
         /** If error finding user return error */
         if(!user){
+
             console.log('couldnt find current user');
+
             return NextResponse.json({error: 'couldnt find current user'});
+
         }
 
        /** Find all trips associated with user */

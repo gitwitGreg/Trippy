@@ -66,7 +66,7 @@ const Search = () => {
                 console.log('missing city');
 
                 return;
-                
+
             }
 
             const paramsObj = {

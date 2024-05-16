@@ -58,8 +58,6 @@ const Hotels = ({location}: {location: string}) => {
 
       const data = await response.json();
 
-      console.log(data);
-
       setImgRef(data)
 
     }catch(error){
