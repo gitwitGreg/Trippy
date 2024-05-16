@@ -13,7 +13,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 
-export default function Activity({tripParams}: {tripParams: string}){
+export default function Activity(context : any){
+
+    const tripParams = context.searchParams
 
     if(!tripParams){
 
