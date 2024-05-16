@@ -30,13 +30,19 @@ const Search = () => {
             })
 
             if(!response.ok){
+
                 console.log('bad response');
-                const error = await response.text();
-                setErrmess(error);
+
+                const error: {error: string} = await response.json();
+
+                setErrmess(error.error);
+
                 return;
             }
 
             const data = await response.json();
+
+            console.log(data);
 
             const addressComp = data.address_components;
 
@@ -80,7 +86,8 @@ const Search = () => {
                     placeholder="where would you like to go"
                     value={adress}
                     className="w-full border border-black rounded p-4 bg-black text-white"
-                    onChange={(e) => setAdress(e.target.value)}/>
+                    onChange={(e) => setAdress(e.target.value)}
+                    />
 
                     {adress && (
                         <button 
@@ -89,6 +96,7 @@ const Search = () => {
                             Verify adress
                         </button>
                     )}
+
                 </form>
 
                 {validAdress && (
