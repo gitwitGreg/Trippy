@@ -52,9 +52,22 @@ const Search = () => {
 
             const addressComp = data.address_components;
 
-            const cityComponent = addressComp.find((component: { types: string | string[]; }) =>
+            const cityComponent = addressComp.find((component: { 
+                long_name : string,
+                short_name: string,
+                types: string[]
+                | string[]; 
+            }) =>
                 component.types.includes("locality")
             );
+
+            if(!cityComponent){
+
+                console.log('missing city');
+
+                return;
+                
+            }
 
             const paramsObj = {
                 adresss: data.formatted_address,

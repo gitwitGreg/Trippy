@@ -20,21 +20,23 @@ export default function useFetchTrips () {
 
             const error: {error: string} = await response.json();
 
-            console.log(error.error);
+            console.log('this is our server returned error : ', error);
 
             setTrips(null);
 
             return;
           }
 
+          
           const data = await response.json();
-
-          console.log(data);
+          console.log(data)
 
           setTrips(data);
     
         }catch(error){
-          console.log(error)
+
+          console.log(error);
+
         }
     }
 
