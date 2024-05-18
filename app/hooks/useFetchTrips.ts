@@ -6,44 +6,43 @@ import { Trip } from "../types";
 
 export default function useFetchTrips () {
 
-    const [trips , setTrips] = useState<Trip | null>(null);
+  const [trips , setTrips] = useState<Trip | null>(null);
     
-    const fetchTrips = async() => {
+  const fetchTrips = async() => {
 
-        try{
+    try{
+      const response = await fetch('/api/getTrips', {
+        method: 'GET'
+      })
 
-          const response = await fetch('/api/getTrips', {
-            method: 'GET'
-          })
-    
-          if(!response.ok){
+      if(!response.ok){
 
-            const error: {error: string} = await response.json();
+        const error: {error: string} = await response.json();
 
-            console.log('this is our server returned error : ', error);
+        console.log(error);
 
-            setTrips(null);
+        setTrips(null);
 
-            return;
-          }
+        return;
+      }
 
-          
-          const data = await response.json();
-          
-          console.log(data)
+      
+      const data = await response.json();
 
-          setTrips(data);
-    
-        }catch(error){
+      setTrips(data);
 
-          console.log(error);
+    }catch(error){
 
-        }
+      console.log(error);
+
     }
 
-    useEffect(() => {
-        fetchTrips()
-    },[]);
+  }
 
-    return {trips}
+  useEffect(() => {
+      fetchTrips()
+  },[]);
+
+  return {trips}
+
 }

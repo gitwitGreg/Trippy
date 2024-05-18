@@ -37,8 +37,6 @@ const Hotels = ({location}: {location: string}) => {
 
     try{
 
-      console.log(imgArr)
-
       const response = await fetch('/api/fetchImages', {
         method: "POST",
 

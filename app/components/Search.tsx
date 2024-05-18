@@ -15,16 +15,18 @@ const Search = () => {
 
     const {trips}: any = useFetchTrips();
 
-    console.log('trips: ', trips);
-
     const handleClick = async(e: any) => {
         
         e.preventDefault();
 
         if(!adress){
+
             setErrmess('missing adress');
+
             return;
+
         }
+
         try{
 
             const response = await fetch('/api/getLocation',{
@@ -47,8 +49,6 @@ const Search = () => {
             }
 
             const data = await response.json();
-
-            console.log(data);
 
             const addressComp = data.address_components;
 
@@ -83,10 +83,6 @@ const Search = () => {
             console.log(error);
 
         }
-    }
-
-    if(validAdress){
-        console.log('what we are trying to pass', validAdress);
     }
 
   return (

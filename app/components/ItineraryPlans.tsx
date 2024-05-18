@@ -31,13 +31,26 @@ const ItineraryPlans = ({newTrip} : {newTrip: string}) => {
     }
 
   return (
-    <div className='bg-black text-white w-full h-screen p-4 gap-4'>
-      <Link href={{
-        pathname: '/activity',
-        query: newTrip
-      }}>
-        <Button className='w-full bg-orange-400 text-black hover:bg-blue-400 hover:text-white'>Add more activities</Button>
-      </Link>
+    <div className='bg-black text-white w-full h-screen p-4 gap-10 flex flex-col'>
+
+      <div className='h-auto w-full gap flex flex-col gap-4'>
+        <Link href={{
+          pathname: '/activity',
+          query: newTrip
+        }}>
+          <Button className='w-full bg-orange-400 text-black hover:bg-blue-400 hover:text-white'>Add more activities</Button>
+        </Link>
+
+        <Link href={{
+          pathname: '/map',
+          query: {
+            tripId: newTrip
+          }
+        }}>
+          <Button className='w-full bg-sky-400 text-white hover:bg-orange-400 hover:text-black'>See whats around!</Button>
+        </Link>
+
+      </div>
 
       <h1 className='text-3xl font-bold font-serif'>Itinerary plans</h1>
 

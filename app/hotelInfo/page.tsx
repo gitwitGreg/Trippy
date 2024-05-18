@@ -18,6 +18,7 @@ import {
   import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Ppic from '../../public/ppic.png'
 
 export default function HotelInfo() {
 
