@@ -4,6 +4,8 @@ import { Loader } from '@googlemaps/js-api-loader';
 import { LocationObject } from '../types';
 import { TailSpin } from 'react-loader-spinner';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 
 const GoogleMaps = () => {
@@ -178,7 +180,6 @@ const GoogleMaps = () => {
                 position: locationInMap
             })
 
-            console.log('done');
         }
         initializeMapWithTrip();
     },[coordinates])
