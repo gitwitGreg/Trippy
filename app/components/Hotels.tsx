@@ -113,7 +113,7 @@ const Hotels = ({location}: {location: string}) => {
 
               <div className='w-[50%] h-auto'>
 
-                  <img src={imgRef[index]} height={500} width={500} alt='hotel-picture' className='rounded-lg h-full w-full'/>
+                <img src={imgRef[index]} height={500} width={500} alt='hotel-picture' className='rounded-lg h-[400px] w-full'/>
 
               </div>
 
