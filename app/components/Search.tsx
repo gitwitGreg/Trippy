@@ -130,7 +130,7 @@ const Search = () => {
                     </div>
                 )}
 
-                {trips && (
+                {trips.length != 0 && (
                     <div>
                         <Link href='/trips'>
                             <Button className='bg-black text-white font-bold hover:bg-sky-400 easein'> View all planned trips</Button>
